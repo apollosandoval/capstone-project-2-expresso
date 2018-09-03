@@ -4,7 +4,7 @@ const timesheetsRouter = require('./timesheets');
 // create an instance of an express router which handles calls to '/api/employees'
 const employeesRouter = express.Router();
 // mount the timesheets router
-timesheetsRouter.use('/:employeeId/timesheets', timesheetsRouter);
+employeesRouter.use('/:employeeId/timesheets', timesheetsRouter);
 //create an instance of sqlite3
 const sqlite3 = require('sqlite3');
 // create an instance of database.sqlite and check if the test database has been set
