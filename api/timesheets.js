@@ -26,12 +26,12 @@ timesheetsRouter.get('/', (req, res, next) => {
   const sql = 'SELECT * FROM Timesheet WHERE Timesheet.employee_id = $employeeId';
   const values = {$employeeId: req.params.employeeId};
 
-  db.all(sql, values, (err,rows) => {
+  db.all(sql, values, (err,timesheets) => {
     if(err) {
       next(err);
     }
     else {
-      res.status(200).json({timesheets: rows});}
+      res.status(200).json({timesheets: timesheets});}
   });
 }); // end of get route
 
